@@ -1,0 +1,318 @@
+<extend name="Layout/ins_page" />
+<block name="content">
+
+	<div class="operate panel panel-default">
+		<div class="panel-body">
+
+			<div class="pull-right">
+				<a class="btn btn-sm btn-danger" onclick="winprint()">打印</a>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<form id="form_data" name="form_data" method='post'>
+			<div class="col-xs-12">
+				<div class="ul_table ul_table_responsive">
+					<ul>
+						<table class="table" ellspacing="0px">
+							<tr style="border-style:none;">
+								<td colspan="6" style="border-style:none;font-weight:bold;text-align:center;line-height:50%;font-family:黑体;">上海国际机场地面服务有限公司</td>
+							</tr>
+							<tr style="width:16%;border-style:none;">
+								<td style="width:16%;border-style:none;background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;"> 部门</td>
+								<td style="width:16%;border-style:none;background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;" colspan="5">人事部</td>
+							</tr>
+							<tr style="width:16%;border:1px solid #000">
+								<td style="width:16%;line-height:50%;font-weight:bold;font-family:黑体;border:1px solid #000">工资期间</td>
+								<td style="width:16%;line-height:50%;border:1px solid #000">2015 11</td>
+								<td style="width:16%;line-height:50%;font-weight:bold;font-family:黑体;border:1px solid #000">姓名</td>
+								<td style="width:16%;line-height:50%;border:1px solid #000">xxx</td>
+								<td style="width:16%;line-height:50%;font-weight:bold;font-family:黑体;border:1px solid #000">员工编号</td>
+								<td style="width:16%;line-height:50%;border:1px solid #000">001101</td>
+							</tr>
+							<tr style="width:16%;border:1px solid #000">
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;font-family:黑体;border:1px solid #000">岗位工资</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;font-family:黑体;border:1px solid #000">年功工资</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;font-family:黑体;border:1px solid #000">绩效工资</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;font-family:黑体;border:1px solid #000">保留工资</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;font-family:黑体;border:1px solid #000">平衡工资</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;font-family:黑体;border:1px solid #000">岗位津贴</td>
+							</tr>
+							<tr style="width:16%;border:1px solid #000">
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+							</tr>
+							<tr style="width:16%;border:1px solid #000">
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">班组长津贴</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">女工津贴</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">少数名族津贴</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">独生子女费</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">高温津贴</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">其他津贴</td>
+							</tr>
+							<tr style="width:16%;border:1px solid #000">
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+							</tr>
+							<tr style="width:16%;border:1px solid #000">
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">加班费</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">课时费</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">其他奖励</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">补发工资</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">年终奖</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">四金超标</td>
+							</tr>
+							<tr style="width:16%;border:1px solid #000">
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">11</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">11</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">11</td>
+							</tr>
+							<tr style="width:16%;border:1px solid #000">
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">应发合计</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">养老保险</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">失业保险</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">医疗保险</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">公积金</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">补充公积金</td>
+							</tr>
+							<tr style="width:16%;border:1px solid #000">
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+							</tr>
+							<tr style="width:16%;border:1px solid #000">
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">企业年金 </td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">工会会费</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">本次扣费基数</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">本次扣税</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">扣费合计</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">实发合计</td>
+							</tr>
+							<tr style="width:16%;border:1px solid #000">
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">11</td>
+							</tr>
+						</table>
+						<table class="table table-condensed">
+							<tr style="border-style:none;">
+								<td colspan="6" style="border-style:none;font-weight:bold;text-align:center;line-height:50%;font-family:黑体;">上海国际机场地面服务有限公司</td>
+							</tr>
+								<td style="width:16%;border-style:none;background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;" colspan="5">人事部</td>
+							</tr>
+							<tr style="width:16%;border:1px solid #000">
+								<td style="width:16%;line-height:50%;font-weight:bold;font-family:黑体;border:1px solid #000">工资期间</td>
+								<td style="width:16%;line-height:50%;border:1px solid #000">2015 11</td>
+								<td style="width:16%;line-height:50%;font-weight:bold;font-family:黑体;border:1px solid #000">姓名</td>
+								<td style="width:16%;line-height:50%;border:1px solid #000">xxx</td>
+								<td style="width:16%;line-height:50%;font-weight:bold;font-family:黑体;border:1px solid #000">员工编号</td>
+								<td style="width:16%;line-height:50%;border:1px solid #000">001101</td>
+							</tr>
+							<tr style="width:16%;border:1px solid #000">
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;font-family:黑体;border:1px solid #000">岗位工资</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;font-family:黑体;border:1px solid #000">年功工资</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;font-family:黑体;border:1px solid #000">绩效工资</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;font-family:黑体;border:1px solid #000">保留工资</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;font-family:黑体;border:1px solid #000">平衡工资</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;font-family:黑体;border:1px solid #000">岗位津贴</td>
+							</tr>
+							<tr style="width:16%;border:1px solid #000">
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+							</tr>
+							<tr style="width:16%;border:1px solid #000">
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">班组长津贴</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">女工津贴</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">少数名族津贴</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">独生子女费</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">高温津贴</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">其他津贴</td>
+							</tr>
+							<tr style="width:16%;border:1px solid #000">
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+							</tr>
+							<tr style="width:16%;border:1px solid #000">
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">加班费</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">课时费</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">其他奖励</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">补发工资</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">年终奖</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">四金超标</td>
+							</tr>
+							<tr style="width:16%;border:1px solid #000">
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">11</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">11</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">11</td>
+							</tr>
+							<tr style="width:16%;border:1px solid #000">
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">应发合计</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">养老保险</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">失业保险</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">医疗保险</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">公积金</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">补充公积金</td>
+							</tr>
+							<tr style="width:16%;border:1px solid #000">
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+							</tr>
+							<tr style="width:16%;border:1px solid #000">
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">企业年金 </td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">工会会费</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">本次扣费基数</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">本次扣税</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">扣费合计</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">实发合计</td>
+							</tr>
+							<tr style="width:16%;border:1px solid #000">
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">11</td>
+							</tr>
+						</table>
+
+						<table class="table">
+							<tr style="border-style:none;">
+								<td colspan="6" style="border-style:none;font-weight:bold;text-align:center;line-height:50%;font-family:黑体;">上海国际机场地面服务有限公司</td>
+							</tr>
+							<tr style="width:16%;border-style:none;">
+								<td style="width:16%;border-style:none;background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;"> 部门</td>
+								<td style="width:16%;border-style:none;background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;" colspan="5">人事部</td>
+							</tr>
+							<tr style="width:16%;border:1px solid #000">
+								<td style="width:16%;line-height:50%;font-weight:bold;font-family:黑体;border:1px solid #000">工资期间</td>
+								<td style="width:16%;line-height:50%;border:1px solid #000">2015 11</td>
+								<td style="width:16%;line-height:50%;font-weight:bold;font-family:黑体;border:1px solid #000">姓名</td>
+								<td style="width:16%;line-height:50%;border:1px solid #000">xxx</td>
+								<td style="width:16%;line-height:50%;font-weight:bold;font-family:黑体;border:1px solid #000">员工编号</td>
+								<td style="width:16%;line-height:50%;border:1px solid #000">001101</td>
+							</tr>
+							<tr style="width:16%;border:1px solid #000">
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;font-family:黑体;border:1px solid #000">岗位工资</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;font-family:黑体;border:1px solid #000">年功工资</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;font-family:黑体;border:1px solid #000">绩效工资</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;font-family:黑体;border:1px solid #000">保留工资</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;font-family:黑体;border:1px solid #000">平衡工资</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;font-family:黑体;border:1px solid #000">岗位津贴</td>
+							</tr>
+							<tr style="width:16%;border:1px solid #000">
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+							</tr>
+							<tr style="width:16%;border:1px solid #000">
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">班组长津贴</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">女工津贴</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">少数名族津贴</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">独生子女费</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">高温津贴</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">其他津贴</td>
+							</tr>
+							<tr style="width:16%;border:1px solid #000">
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+							</tr>
+							<tr style="width:16%;border:1px solid #000">
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">加班费</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">课时费</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">其他奖励</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">补发工资</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">年终奖</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">四金超标</td>
+							</tr>
+							<tr style="width:16%;border:1px solid #000">
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">11</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">11</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">11</td>
+							</tr>
+							<tr style="width:16%;border:1px solid #000">
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">应发合计</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">养老保险</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">失业保险</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">医疗保险</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">公积金</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">补充公积金</td>
+							</tr>
+							<tr style="width:16%;border:1px solid #000">
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+							</tr>
+							<tr style="width:16%;border:1px solid #000">
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">企业年金 </td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">工会会费</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">本次扣费基数</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">本次扣税</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">扣费合计</td>
+								<td style="background-color:#D9EDF7;font-weight:bold;line-height:50%;font-family:黑体;border:1px solid #000">实发合计</td>
+							</tr>
+							<tr style="width:16%;border:1px solid #000">
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">1</td>
+								<td style="line-height:50%;font-family:宋体;border:1px solid #000">11</td>
+							</tr>
+						</table>
+					</ul>
+				</div>
+			</div>
+		</form>
+
+	</div>
+
+</block>
+<block name="js">
+
+	<script type="text/javascript"></script>
+</block>

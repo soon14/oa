@@ -1,0 +1,38 @@
+//20160109 刘鹏
+<extend name="Layout/ins_popup" />
+<block name="content">
+	<div class="popup-fixed">
+		<div class="popup-body clearfix">
+			<div class="pull-center">
+				<div class="col-7 pull-left text-center mid" style="margin-top: 24px;"></div>
+					<b class="popup-label">人员</b>
+					<div id="addr_list" style="width:100%;height:369px;">
+					<ul id="list" class="list-group">
+					<foreach name="contact_list" item="vo">
+					  <li class="list-group-item" value="{$vo.id}" name='{$vo.name}'>
+						 {$vo.id}<a onclick="save();" class="success">{$vo.name}</a>
+					  </li>
+					</foreach>
+					</ul>
+					</div>
+				</div>	
+			</div>
+		</div>
+	</div>
+</block>
+<block name="js">
+	<script type="text/javascript">
+		function save() {
+				var myval = 0;
+				var my=$("input[id='{$select_id}']", parent.document);
+				var myhidden=$("input[name='{$select_id}']", parent.document);
+				$("ul li").click(function(){
+					myhidden.val('|');
+					myval=$(this).attr('name')+'|'+$(this).val();
+					my.val(myval);
+					myclose();
+				})	
+			
+		}
+	</script>
+</block>

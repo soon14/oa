@@ -1,0 +1,67 @@
+<extend name="Layout/ins_popup" />
+<block name="content">
+	<input type="hidden" name="ajax" id="ajax" value="1">
+	{:W('PageHeader/popup',array('name'=>'添加销售数据','search'=>'N'))}
+	<!-- 列表显示区域  -->
+	<div class="row">
+		<div class="col-xs-12 sub_content">
+			<form id="form_data" name="form_data" method="post" class="well form-horizontal clearfix">
+				<input type="hidden" name="opmode" id="opmode" value="add">
+				<input type="hidden" name="shop_name" id="shop_name" value="">
+				<div class="form-group col-xs-12">
+					<label class="col-xs-3 control-label" for="shop_no">门店*：</label>
+					<div class="col-xs-9">
+						<select name="shop_no" id="shop_no" class="form-control" msg="请选择部门级别" check="require">
+							{:fill_option($node_option)}
+						</select>
+					</div>
+				</div>
+				<div class="form-group col-xs-12">
+					<label class="col-xs-3 control-label" for="sales_date">日期*：</label>
+					<div class="col-xs-9">
+						<input class="form-control input-date" type="text" id="sales_date" name="sales_date" check="require" msg="请输入名称">
+					</div>
+				</div>
+				<div class="form-group col-xs-12">
+					<label class="col-xs-3 control-label" for="amount">销售数据*：</label>
+					<div class="col-xs-9">
+						<input class="form-control" type="text" id="amount" name="amount" check="require" msg="请输入销售数据">
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</block>
+<block name="js">
+	<script type="text/javascript">
+		function save() {
+			if (check_form("form_data")) {
+				var vars = $("#form_data").serialize();
+				sendAjax("{:U('save')}", vars, function(data) {
+					if (data.status) {
+						ui_alert(data.info, function() {
+							parent.location.reload(true);
+							myclose();
+						});
+					} else {
+						ui_error(data.info);
+					}
+				});
+			}
+		}
+
+		function select_pid() {
+			winopen("{:U('winpop')}",560, 470);
+		}
+
+		$(document).ready(function() {
+			$pid = $("#id", parent.document).val();
+			$("#pid").val($pid);
+			$("#shop_name").val($('option:selected',this).text());
+			$("#shop_no").change(function() {			
+				$("#shop_name").val($('option:selected',this).text());
+			});
+		});
+	</script>
+
+</block>

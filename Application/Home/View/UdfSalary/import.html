@@ -1,0 +1,28 @@
+<extend name="Layout/ins_page" />
+<block name="content">
+	{:W('PageHeader',array('name'=>'导入自助查询','search'=>'N'))}
+	<form method='post' id="form_data" enctype="multipart/form-data" class="form-horizontal well clearfix">
+		<input type="hidden" name="opmode" value="import">
+		<p>
+			第一列：用户ID
+		</p>
+		<p>
+			第二列开始是用户数据
+		</p>
+		<p>
+			选择要导入的文件&nbsp;
+			<input type="file"  name="file" value="" class="form-control col-30">
+		</p>
+		<p>
+			<input class="btn btn-sm btn-primary" type="button" value="导入" onclick="save();">
+			<input  class="btn btn-sm btn-default" type="button" value="取消" onclick="go_return_url();">
+		</p>
+	</form>
+</block>
+<block name="js">
+	<script type="text/javascript">
+		function save() {
+			sendForm("form_data", "{:U('import')}");
+		}
+	</script>
+</block>

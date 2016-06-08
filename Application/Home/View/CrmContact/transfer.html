@@ -1,0 +1,161 @@
+<extend name="Layout/ins_page" />
+
+<block name="content">
+	<style>
+		.sub_menu {
+
+			height: 600px;
+			overflow-y: scroll;
+		}
+
+	</style>
+
+	{:W('PageHeader/search',array('name'=>'客户分配','search'=>'S'))}
+
+	<div class="operate panel panel-default">
+
+		<div class="panel-body">
+
+			<div class="pull-right">
+
+				<a onclick="save()" class="btn btn-sm btn-primary">保存</a>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- 列表显示区域  -->
+
+	<div class="row">
+
+		<form id="form_data" name="form_data" method="post" >
+
+			<div class="col-sm-8 sub_menu">
+
+				<table class="table table-bordered">
+
+					<thead>
+
+						<tr>
+
+							<th class="text-center col-4"><label class="inline pull-left">
+								<input class="ace" type="checkbox" name="id-toggle-all" id="id-toggle-all" />
+								<span class="lbl"></span></label></th>
+
+							<th><nobr>姓名</nobr></th>
+							<th><nobr>会员类型</nobr></th>
+							<th><nobr>性别</nobr></th>
+							<th><nobr>住址</nobr></th>
+							<th><nobr>负责人</nobr></th>
+						</tr>
+
+					</thead>
+
+					<tbody class="tbody">
+                        <if condition="$list">
+						<volist name="list" id="vo">
+
+							<tr id="{$vo.uid}">
+
+								<td class="text-center col-3"><label class="inline pull-left">
+									<input class="ace" type="checkbox" name="contact_id[]" value="{$vo.uid}" />
+									<span class="lbl"></span></label></td>
+
+								<td><nobr>{$vo.username}</nobr></td>
+                                <td><nobr>普通会员</nobr></td>
+                                <td><nobr><if condition = "$vo['gender'] eq '1'">男<else/>女</if></nobr></td>
+                                <td><nobr>{$vo.address}</nobr></td>
+                                <td><nobr>{$vo.name}</nobr></td>
+							</tr>
+
+						</volist>
+                    <else/>
+                        <tr>
+                            <td colspan="6"><center>没有数据</center></td>
+                        </tr>
+                    </if>
+					</tbody>
+
+				</table>
+
+			</div>
+
+			<div class="col-sm-4 sub_menu">
+				<table class="table table-bordered">
+
+					<thead>
+
+						<tr>
+
+							<th>&nbsp;</th>
+
+							<th><nobr>姓名</nobr></th>
+                            <th><nobr>部门</nobr></th>
+                            <th><nobr>职位</nobr></th>
+
+						</tr>
+
+					</thead>
+
+					<tbody>
+
+						<volist name="user_list" id="data">
+
+							<tr id="{$data.id}">
+
+								<td class="col-4"><label class="inline pull-left ">
+									<input class="ace" type="radio" id="user_{$data.id}" name="user_id" value="{$data.id}"/>
+									<span class="lbl"></span></label></td>
+
+								<td>{$data.name}</td>
+								<td>
+								<nobr>
+
+									{$data.dept_name}
+
+								</nobr></td>
+
+								<td>
+								<nobr>
+
+									{$data.position_name}
+
+								</nobr></td>
+
+							</tr>
+
+						</volist>
+
+					</tbody>
+
+				</table>
+
+			</div>
+
+		</form>
+
+	</div>
+
+</block>
+
+<block name="js">
+
+	<script type="text/javascript">
+		function save() {
+			var vars = $("#form_data").serialize();
+			sendAjax("{:U('transfer_save')}", vars, function(data) {
+                     if (data.status) {
+						ui_alert(data.info, function() {
+							location.href="";
+						});
+					} else {
+						ui_error(data.info);
+					}
+			});
+
+		}
+	</script>
+
+</block>

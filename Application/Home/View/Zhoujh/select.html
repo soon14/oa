@@ -1,0 +1,132 @@
+<extend name="Layout/ins_page" />
+<block name="content">
+	{:W('PageHeader/adv_search',array('name'=>'周计划列表','search'=>'M'))}
+	<form method="post" name="form_adv_search" id="form_adv_search">
+		<div class="adv_search panel panel-default  hidden"  id="adv_search">
+			<div class="panel-heading">
+				<div class="row">
+					<h4 class="col-xs-6">高级搜索</h4>
+					<div class="col-xs-6 text-right">
+						<a  class="btn btn-sm btn-info" onclick="submit_adv_search();">搜索</a>
+						<a  class="btn btn-sm " onclick="close_adv_search();">关闭</a>
+					</div>
+				</div>
+			</div>
+			<div class="panel-body">
+				<eq name="auth.admin" value="true">
+					<div class="form-group col-sm-6">
+						<label class="col-sm-4 control-label" for="eq_dept_id">部门：</label>
+						<div class="col-sm-8">
+							<select class="form-control" name="eq_dept_id">
+								<option value="">选择部门</option>
+								{$dept_list}
+							</select>
+						</div>
+					</div>
+					<div class="form-group col-sm-6">
+						<label class="col-sm-4 control-label" for="eq_user_id">登录人：</label>
+						<div class="col-sm-8">
+							<select class="form-control" name="eq_user_id" >
+								<option value="">选择人员</option>
+								{:fill_option($emp_list)};
+							</select>
+						</div>
+					</div>
+				</eq>
+				<div class="form-group col-sm-6">
+					<label class="col-sm-4 control-label" for="content">内容：</label>
+					<div class="col-sm-8">
+						<input  class="form-control" type="text" id="content" name="content" >
+					</div>
+				</div>
+				<div class="form-group col-sm-6">
+					<label class="col-sm-4 control-label" for="be_create_time">登录时间：</label>
+					<div class="col-sm-8">
+						<div class="input-daterange input-group" >
+							<input type="text" class="input-sm form-control text-center" name="be_create_time" readonly="readonly"/>
+							<span class="input-group-addon">-</span>
+							<input type="text" class="input-sm form-control text-center" name="en_create_time" readonly="readonly"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+	<div class="operate panel panel-default">
+				<div class="panel-body">
+					<div class="pull-right">
+						<a class="btn btn-sm btn-primary" onclick="add()">新建</a>
+					</div>
+				</div>
+			</div>
+	<empty name="list">
+		<div class="ul_table">
+			<ul class="">
+				<li class="no-data">
+					没找到数据
+				</li>
+			</ul>
+		
+			<else/>
+
+			<div class="work_log_box">
+				<table class="table">
+
+					<tr>
+						<td>Title</td>
+						<td>Schedule</td>
+						<td>Operation</td>
+					</tr>
+					
+						<tr>
+							<td>第一周</td>
+							<td>{$vo.jindu}</td>
+							<td><a  onclick="week1()">查看</a></td>
+						</tr>
+						<tr>
+							<td>第二周</td>
+							<td>{$vo.jindu}</td>
+							<td><a onclick="week2()">查看</a></td>
+						</tr>
+						<tr>
+							<td>第三周</td>
+							<td>{$vo.jindu}</td>
+							<td><a  onclick="week3()">查看</a></td>
+						</tr>
+						<tr>
+							<td>第四周</td>
+							<td>{$vo.jindu}</td>
+							<td><a  onclick="week4()">查看</a></td>
+						</tr>
+				
+				</table>
+			</div>
+
+			<div class="pagination">
+				{$page}
+			</div>
+		</div>
+	</empty>
+</block>
+<block name="js">
+	<script type="text/javascript">
+		function add() {
+			window.open("{:U('Zhoujh/tzadd')}", "_self");
+		}
+		function week1() {
+			window.open("{:U('Zhoujh/week1')}", "_self");
+		}
+		function week2() {
+			window.open("{:U('Zhoujh/week2')}", "_self");
+		}
+		function week3() {
+			window.open("{:U('Zhoujh/week3')}", "_self");
+		}function week4() {
+			window.open("{:U('Zhoujh/week4')}", "_self");
+		}
+		$(document).ready(function() {
+			set_return_url();
+		});
+
+	</script>
+</block>

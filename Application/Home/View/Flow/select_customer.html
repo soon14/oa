@@ -1,0 +1,51 @@
+<extend name="Layout/ins_popup" />
+<block name="content">
+	<input type="hidden" name="id" id="id">
+	<input type="hidden" name="name" id="name">
+	<div class="popup-header clearfix">
+		<div class="pull-left">
+			<h1>请选择客户</h1>
+		</div>
+		<div class="pull-right">
+			<a onclick="save();" class="btn btn-sm btn-primary">确定</a>
+			<a onclick="myclose();" class="btn btn-sm btn-default">关闭</a>
+		</div>
+	</div>
+	<div class="popup-body" style="height: 420px;overflow-y: auto;">
+		<div class="popup_tree_menu">
+			<ul class="tree_menu">
+				<li>
+					
+					<volist name="list" id="li">
+					   <a node="{$li.id}"><i class="fa fa-user"></i> <span>{$li.name}/{$li.product}</span> </a>	
+					</volist>
+				</li>
+			</ul>
+		</div>
+	</div>
+</block>
+<block name="js">
+	<script type="text/javascript">
+		function save() {
+			if ($("#name").val().length > 0) {
+				$("#contact_id", parent.document).val($("#id").val());
+				$("#contact_name", parent.document).val($("#name").val());
+			} else {
+				ui_error("请选择客户");
+				return false;
+			}
+			myclose();
+		}
+
+		$(document).ready(function() {
+			parent_node = $(".sub_left_menu ul.tree_menu a.active", parent.document).attr("node");
+			$("ul.tree_menu a[node='" + parent_node + "']").addClass("disabled");
+			$(".popup_tree_menu a:not('.disabled')").click(function() {
+				$("#id").val($(this).attr("node"));
+				$("#name").val($(this).children("span").text());
+				$(".tree_menu a.active").removeClass("active");
+				$(this).addClass("active");
+			});
+		});
+	</script>
+</block>

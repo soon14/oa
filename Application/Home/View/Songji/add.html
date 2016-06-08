@@ -1,0 +1,127 @@
+<extend name="Layout/ins_base" />
+<block name="content">
+	{:W('PageHeader/simple',array('name'=>'送机','search'=>'N'))}
+	<form method='post' id="form_data" name="form_data" enctype="multipart/form-data" class="form-horizontal">
+		<input type="hidden" id="ajax" name="ajax" value="0">
+		<input type="hidden" id="executor" name="executor" value="">
+		<input type="hidden" id="opmode" name="opmode" value="add">
+		<div class="form-group col-xs-12 col-sm-6">
+			<label class="col-xs-4 col-sm-4 control-label" for="passenger">乘坐人：</label>
+			<div class="col-xs-8 col-sm-8">
+				<input class="form-control" type="text" id="passenger" name="passenger" value=""  check="require" msg="请输入标题">
+			</div>
+		</div>
+		<div class="form-group col-xs-12 col-sm-6">
+			<label class="col-xs-4 col-sm-2 control-label" for="obile">手机：</label>
+			<div class="col-xs-8 col-sm-10">
+				<input class="form-control" type="text" id="mobile" name="mobile" value="">
+			</div>
+		</div>		
+		<div class="form-group col-xs-12 col-sm-6">
+			<label class="col-xs-4 col-sm-4 control-label" for="depart_location">出发地点：</label>
+			<div class="col-sm-8">
+				<input class="form-control" type="text" id="depart_location" name="depart_location" value=""  check="require" msg="请输入标题">
+			</div>
+		</div>
+		<div class="form-group col-xs-12 col-sm-6">
+			<label class="col-xs-4 col-sm-2 control-label" for="depart_time">出发时间：</label>
+			<div class="col-xs-8 col-sm-10">
+				<input class="form-control input-date-time" type="text" id="depart_time" name="depart_time" value="" readonly="readonly">
+			</div>
+		</div>	
+		<div class="form-group col-xs-12 col-sm-6">
+			<label class="col-xs-4 col-sm-4 control-label" for="flight_no">航班：</label>
+			<div class="col-xs-8 col-sm-8">
+				<input class="form-control" type="text" id="flight_no" name="flight_no" value=""  check="require" msg="请输入标题">
+			</div>
+		</div>
+
+		<div class="form-group col-xs-12 col-sm-6">
+			<label class="col-xs-4 col-sm-2 control-label" for="passenger_qty">乘客人数：</label>
+			<div class="col-xs-8 col-10">
+				<select class="form-control" id="passenger_qty" name="passenger_qty">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="form-group col-xs-12">
+			<label class="col-xs-4 col-sm-2 control-label" for="message">留言：</label>
+			<div class="col-xs-12 col-sm-10">
+				<textarea id="message" name="message" style="width:100%;height:100px;" check="require" msg="请输入内容"></textarea>
+			</div>
+		</div>
+
+		<div class="form-group col-xs-12 col-sm-12">
+			<div class="action col-sm-10 col-sm-offset-2">
+				<input class="btn btn-sm btn-primary" type="button" value="提交" onclick="save();">
+				<input class="btn btn-sm btn-default" type="button" value="取消" onclick="go_return_url();">
+			</div>
+		</div>
+	</form>
+	<div id="l-map"></div> 
+	<div id="searchResultPanel" style="border:1px solid #C0C0C0;width:150px;height:auto; display:none;"></div>
+</block>
+<block name="js">
+	<script type="text/javascript">
+		function save() {
+			sendForm("form_data", "{:U('save')}");
+		}
+		
+	// 百度地图API功能
+	function G(id) {
+		return document.getElementById(id);
+	}
+
+	var map = new BMap.Map("l-map");
+	map.centerAndZoom("青岛",12);                   // 初始化地图,设置城市和地图级别。
+
+	var ac = new BMap.Autocomplete(    //建立一个自动完成的对象
+		{"input" : "depart_location"
+		,"location" : map
+	});
+
+	ac.addEventListener("onhighlight", function(e) {  //鼠标放在下拉列表上的事件
+	var str = "";
+		var _value = e.fromitem.value;
+		var value = "";
+		if (e.fromitem.index > -1) {
+			value = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
+		}    
+		str = "FromItem<br />index = " + e.fromitem.index + "<br />value = " + value;
+		
+		value = "";
+		if (e.toitem.index > -1) {
+			_value = e.toitem.value;
+			value = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
+		}    
+		str += "<br />ToItem<br />index = " + e.toitem.index + "<br />value = " + value;
+		G("searchResultPanel").innerHTML = str;
+	});
+
+	var myValue;
+	ac.addEventListener("onconfirm", function(e) {    //鼠标点击下拉列表后的事件
+	var _value = e.item.value;
+		myValue = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
+		G("searchResultPanel").innerHTML ="onconfirm<br />index = " + e.item.index + "<br />myValue = " + myValue;
+		
+		setPlace();
+	});
+
+	function setPlace(){
+		map.clearOverlays();    //清除地图上所有覆盖物
+		function myFun(){
+			var pp = local.getResults().getPoi(0).point;    //获取第一个智能搜索的结果
+			map.centerAndZoom(pp, 18);
+			map.addOverlay(new BMap.Marker(pp));    //添加标注
+		}
+		var local = new BMap.LocalSearch(map, { //智能搜索
+		  onSearchComplete: myFun
+		});
+		local.search(myValue);
+	}		
+	</script>
+</block>

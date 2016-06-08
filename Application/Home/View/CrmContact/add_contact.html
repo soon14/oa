@@ -1,0 +1,197 @@
+<extend name="Layout/ins_page" />
+<block name="content">
+	{:W('PageHeader/simple',array('name'=>'新建新客户','search'=>'N'))}
+	
+	<form method='post' id="form_data" class="well form-horizontal">
+		<div class="form-group col-sm-6">
+			<label class="col-sm-4 control-label" for="address">产品：</label>
+			<div class="col-sm-8">
+				<select class="form-control" id="product" name="product" msg="请选择商品"
+					check="require">
+					<option>请选择</option>
+					<volist name="product" id="group">
+						<optgroup label="{$key}">
+						<volist name="group" id="vo">
+							<option value="{$vo}">{$vo}</option>
+						</volist>
+						</optgroup>
+					</volist>
+				</select>
+			</div>
+		</div>
+
+		<div class="form-group col-sm-6">
+			<label class="col-sm-4 control-label" for="name">姓名*：</label>
+			<div class="col-sm-8">
+				<input class="form-control" type="text" id="name" name="name"
+				check="require" msg="请输入姓名">
+			</div>
+		</div>
+		<div class="form-group col-sm-6">
+			<label class="col-sm-4 control-label" for="salesman">业务员：</label>
+			<input type="hidden" id="salesman_id" name="salesman_id"  check="require" msg="请选择业务员">
+			<input type="hidden" id="salesman_name" name="salesman_name">
+			<div class="col-sm-8">
+				<div class="input-group">
+					<input type="text" class="form-control"  id="salesman">
+					<div class="input-group-btn">
+						<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+							<span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
+					</div>
+					<!-- /btn-group -->
+				</div>
+			</div>
+		</div>
+		<div class="form-group col-sm-6">
+			<label class="col-sm-4 control-label" for="company">公司：</label>
+			<input type="hidden" id="company_id" name="company_id" check="require" msg="请选择公司">
+			<input type="hidden" id="company_name" name="company_name" >
+			<div class="col-sm-8">
+				<div class="input-group">
+					<input type="text" class="form-control"  id="company">
+					<div class="input-group-btn">
+						<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+							<span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
+					</div>
+					<!-- /btn-group -->
+				</div>
+			</div>
+		</div>
+		<div class="form-group col-sm-6">
+			<label class="col-sm-4 control-label" for="dept">部门：</label>
+			<div class="col-sm-8">
+				<input class="form-control" type="text" id="dept" name="dept">
+			</div>
+		</div>
+		<div class="form-group col-sm-6">
+			<label class="col-sm-4 control-label" for="position">职位：</label>
+			<div class="col-sm-8">
+				<input class="form-control" type="text" id="position" name="position">
+			</div>
+		</div>
+		<div class="form-group col-sm-6">
+			<label class="col-sm-4 control-label" for="office_tel">办公电话*：</label>
+			<div class="col-sm-8">
+				<input class="form-control" type="text" id="office_tel"
+				name="office_tel" check="require" msg="请输入办公电话">
+			</div>
+		</div>
+		<div class="form-group col-sm-6">
+			<label class="col-sm-4 control-label" for="mobile_tel">手机：</label>
+			<div class="col-sm-8">
+				<input class="form-control" type="text" id="mobile_tel" name="mobile_tel">
+			</div>
+		</div>
+		<div class="form-group col-sm-6">
+			<label class="col-sm-4 control-label" for="email">邮件：</label>
+			<div class="col-sm-8">
+				<input class="form-control" type="text" id="email" name="email">
+			</div>
+		</div>
+		<div class="form-group col-sm-6">
+			<label class="col-sm-4 control-label" for="im">即时聊天：</label>
+			<div class="col-sm-8">
+				<input class="form-control" type="text" id="im" name="im">
+			</div>
+		</div>
+
+		<volist name="field_list" id="vo">
+			{:W('UserDefineField/edit',array($vo))}
+		</volist>
+		<div class="form-group">
+			<label class="col-sm-2 control-label" for="remark">其他：</label>
+			<div class="col-sm-9">
+				<textarea class="form-control simple" name="remark">
+				</textarea>
+			</div>
+		</div>
+		 <div class="form-group">
+            <label class="col-sm-2 control-label" for="name">附件：</label>
+
+            <div class="col-sm-10">
+                {:W('FileUpload/add')}
+            </div>
+        </div>
+	</form>
+	<div class="operate panel panel-default">
+		<div class="panel-body">
+
+			<div class="col-sm-12 col-sm-offset-5">
+				<input class="btn btn-sm btn-primary save" type="button" value="保存" onclick="save();">
+                <a href="{:U('index')}" class="btn btn-sm btn-default">返回</a>
+			</div>
+
+		</div>
+	</div>
+</block>
+<block name="js">
+	<script type="text/javascript">
+		 function save() {
+            var vars=$("#form_data").serialize();
+            if (check_form("form_data")) {
+                sendAjax("{:U('add_contact_save')}", vars, function (data) {
+
+                    if (data.status) {
+                        ui_alert(data.info, function () {
+                            location.href = "{:U('index')}";
+                        });
+                    } else {
+                        ui_error(data.info);
+                    }
+                });
+            }
+        }
+
+		$(document).keydown(function(e) {
+			// ctrl + s
+			if (e.ctrlKey == true && e.keyCode == 83) {
+				save();
+				return false;
+				// 截取返回false就不会保存网页了
+			}
+		});
+		$("#salesman").bsSuggest({
+			url : "{:U('get_salesman_list')}",
+			showBtn : true,
+			effectiveFields : ["name"],
+			searchFields : ["name"],
+			effectiveFieldsAlias : {
+				name : "业务员"
+			},
+			showHeader: true,
+			idField : "id",
+			keyField : "name"
+		}).on('onDataRequestSuccess', function(e, result) {
+		}).on('onSetSelectValue', function(e, keyword) {
+			$("#salesman_id").val(keyword.id);
+			$("#salesman_name").val(keyword.key);
+		}).on('onUnsetSelectValue', function(e) {
+			$("#salesman_id").val("");
+			$("#salesman_name").val("");
+		});
+
+		$("#company").bsSuggest({
+			url : "{:U('get_compnay_list')}",
+			showBtn : true,
+			effectiveFields : ["name"],
+			searchFields : ["name"],
+			effectiveFieldsAlias : {
+				name : "公司"
+			},
+			showHeader: true,
+			idField : "id",
+			keyField : "name"
+		}).on('onDataRequestSuccess', function(e, result) {
+		}).on('onSetSelectValue', function(e, keyword) {
+			$("#company_id").val(keyword.id);
+			$("#company_name").val(keyword.key);
+		}).on('onUnsetSelectValue', function(e) {
+			$("#company_id").val("");
+			$("#company_name").val("");
+		});
+	</script>
+</block>

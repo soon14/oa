@@ -1,0 +1,16 @@
+<extend name="Layout/ins_page" />
+<block name="content">
+	{:W('PageHeader',array('name'=>'导入自助查询','search'=>'N'))}
+	<form method='post' id="form_data" enctype="multipart/form-data" class="form-horizontal well clearfix">
+		<input type="hidden" name="opmode" value="import">
+		<p>
+			导入：{$count}
+		</p>
+		<p>
+			实发合计：{$sum}
+		</p>		
+		<p>			
+			<input  class="btn btn-sm btn-default" type="button" value="返回" onclick="go_return_url();">
+		</p>
+	</form>
+</block>

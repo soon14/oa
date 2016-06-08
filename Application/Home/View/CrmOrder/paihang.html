@@ -1,0 +1,43 @@
+<extend name="Layout/ins_page" />
+<block name="content">
+    <div class="page-header clearfix">
+        <h1 class="col-sm-8">上月销售排名TOP10</h1>
+    </div>
+    <div class="space-8"></div>
+    <div class="">
+        <form id="form_data" name="form_data" method='post'>
+            <div class="">
+                <div class="ul_table ul_table_responsive">
+                    <ul>
+                        <li class="thead content">
+                            <div class="row">
+                                <span class="col-xs-1">排名</span>
+                                <span class="col-xs-5">姓名</span>
+                                <span class="col-xs-5">销售额</span>
+                            </div>
+                        </li>
+                        <empty name="paihang">
+                            <li class="no-data">
+                                没找到数据
+                            </li>
+                        <else />
+                            <foreach name="paihang" item="order">
+                                <li class="tbody content">
+                                    <div class="row">
+                                        <span class="col-xs-1">{$key + 1 }</span>
+                                        <span class="col-xs-5">{$order.name}</span>
+                                        <if condition="$key == 0 ">
+                                            <span class="col-xs-5">{$order.amount}</span>
+                                        </if>
+                                    </div>
+                                </li>
+                            </foreach>
+                        </empty>
+                    </ul>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+</block>

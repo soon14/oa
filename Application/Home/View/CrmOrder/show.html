@@ -1,0 +1,55 @@
+<extend name="Layout/ins_page" />
+<block name="content">
+
+	<div class="row">
+		<div class="col-xs-12">
+			<form id="form_data" name="form_data" method="post" class="form-horizontal">
+				<input type="hidden" name="id" id="id"  value="{$vo.id}">
+				<input type="hidden" name="pic" id="pic" value="{$vo.pic}">
+				<input type="hidden" name="ajax" id="ajax" value="0">
+				<input type="hidden" name="opmode" id="opmode" value="">
+				<table class="table table-bordered" >
+					<tr>
+						<th>客户</th>
+						<td colspan="3">
+							<p class="form-control-static">
+								{$order_info[0].username}
+							</p></td>
+					</tr>
+					<tr>
+						<th>订单总金额</th>
+						<td colspan="3">
+							<p class="form-control-static">
+								{$order_info[0].total_amount} 元
+							</p></td>
+					</tr>
+					<tr>
+						<th>订单完成日期</th>
+						<td colspan="3">
+							<p class="form-control-static">
+								{$order_info[0].updated_at}
+							</p></td>
+					</tr>
+					<tr>
+						<th style="border:0">商品信息</th>
+						<td colspan="3" style="border:0">
+							<p class="form-control-static">
+							</p></td>
+					</tr>
+
+					<foreach name="order_info" item="order">
+						<tr>
+							<th>{$order.name}</th>
+							<td colspan="3">
+								<p class="form-control-static">
+									¥ {$order.price}  元   x {$order.count}
+								</p></td>
+						</tr>
+					</foreach>
+
+				</table>
+			</form>
+		</div>
+	</div>
+
+</block>

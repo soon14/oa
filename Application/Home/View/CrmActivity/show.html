@@ -1,0 +1,91 @@
+<extend name="Layout/ins_page" />
+<block name="content">
+	{:W('PageHeader/simple',array('name'=>'活动详情','search'=>'N'))}
+
+	<div class="row">
+		<div class="col-xs-12">
+			<form id="form_data" name="form_data" method="post" class="form-horizontal">
+				<input type="hidden" name="id" id="id"  value="{$vo.id}">
+				<input type="hidden" name="pic" id="pic" value="{$vo.pic}">
+				<input type="hidden" name="ajax" id="ajax" value="0">
+				<input type="hidden" name="opmode" id="opmode" value="">
+				<table class="table table-bordered" >
+					<tr>
+						<th class="col-10">
+							<nobr>
+								活动名称
+							</nobr></th>
+						<td colspan="2" class="col-30">
+							<p class="form-control-static">
+								{$activity_info.ac_name}
+							</p></td>
+						<td rowspan="3" class="col-20"><img class="img-thumbnail col-12" id="party_img" src="{$activity_info.picture}" onerror="javascript:this.src='/Uploads/emp_pic/no_avatar.jpg'"></td>
+					</tr>
+					<tr>
+						<th>活动内容</th>
+						<td colspan="2">
+							<p class="form-control-static">
+								{$activity_info.content}
+							</p></td>
+					</tr>
+					<tr>
+						<th>活动发起人</th>
+						<td colspan="2">
+							<p class="form-control-static">
+								{$activity_info.username}
+							</p></td>
+					</tr>
+
+					<th>活动城市</th>
+					<td class="col-20">
+						<p class="form-control-static">
+							{$activity_info.city}
+						</p></td>
+					<th class="col-10">报名截止时间</th>
+					<td>
+						<p class="form-control-static">
+							{$activity_info.apply_end}
+						</p></td>
+					</tr>
+					<tr>
+						<th>
+							<nobr>
+								活动门店
+							</nobr></th>
+						<td>
+							<p class="form-control-static">
+								{$activity_info.name}
+							</p>
+						</td>
+						<th>
+							<nobr>
+								活动举办时间
+							</nobr></th>
+						<td>
+							<p class="form-control-static">
+								{$activity_info.start_time}
+							</p>
+						</td>
+					</tr>
+					<tr>
+					<tr>
+						<th>联系电话</th>
+						<td colspan="3">
+							<p class="form-control-static">
+								{$activity_info.tel}
+							</p></td>
+					</tr>
+					<tr>
+						<th>报名人数</th>
+						<td colspan="3">
+							<p class="form-control-static">
+								{$activity_info.apply_number}/{$activity_info.max_number}
+							</p></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+
+
+</block>

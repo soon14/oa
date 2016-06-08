@@ -1,0 +1,62 @@
+<extend name="Layout/ins_page" />
+<block name="content">
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">请输入密码：</h4>
+                </div>
+                <div class="modal-body">
+                    <form method='post' id="form_data">
+                        <input name="state"type="hidden"value="1"/><input class="form-control" name="pwd"type="password"/>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                	<button id="enter" onclick="find_pwd()" type="button" class="btn btn-warning pull-left">
+                        找回密码
+                    </button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                        关闭
+                    </button>
+                    <button id="enter" onclick="submit()" type="button" class="btn btn-primary">
+                        确定
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</block>
+<block name="js">
+    <script type="text/javascript">
+        $(document).ready(function(){
+           $('#myModal').modal({backdrop: 'static', keyboard: false});
+		
+        });
+        function submit(){
+            var vars = $("#form_data").serialize();
+            sendAjax("{:U('enter_pwd')}", vars, function(data){
+                if (data.status) {
+                    window.location = "{:U('index')}&allow=" + data.allow + "";
+                }
+                else {
+                    ui_error(data.info);
+                }
+            });
+            
+        }
+        
+        document.onkeydown = function(event){
+            var e = event || window.event || arguments.callee.caller.arguments[0];
+            if (e && e.keyCode == 13) {
+                submit();
+                return false;
+            }
+        };
+		function find_pwd(){
+			window.location="{:U('find_pwd')}"
+		}
+    </script>
+</block>

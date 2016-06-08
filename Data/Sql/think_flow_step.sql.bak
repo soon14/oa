@@ -1,0 +1,51 @@
+﻿# Host: 127.0.0.1  (Version: 5.6.12-log)
+# Date: 2016-03-01 17:34:47
+# Generator: MySQL-Front 5.3  (Build 1.27)
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE */;
+/*!40101 SET SQL_MODE='NO_ENGINE_SUBSTITUTION' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES */;
+/*!40103 SET SQL_NOTES='ON' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS */;
+/*!40014 SET FOREIGN_KEY_CHECKS=0 */;
+
+#
+# Source for table "think_flow_step"
+#
+
+DROP TABLE IF EXISTS `think_flow_step`;
+CREATE TABLE `think_flow_step` (
+  `id` int(3) NOT NULL AUTO_INCREMENT,
+  `flow_type_id` int(11) DEFAULT NULL,
+  `name` varchar(50) NOT NULL,
+  `condition` text,
+  `condition_name` varchar(255) DEFAULT '',
+  `confirm` varchar(200) NOT NULL,
+  `confirm_name` text NOT NULL,
+  `consult` varchar(200) NOT NULL,
+  `consult_name` text,
+  `sort` varchar(20) NOT NULL,
+  `is_del` tinyint(3) NOT NULL DEFAULT '0',
+  `remark` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8;
+
+#
+# Data for table "think_flow_step"
+#
+
+INSERT INTO `think_flow_step` VALUES (81,33,'条件1','{\"step_id\":\"81\",\"key_11\":\"59\",\"filter_11\":\"eq\",\"val_11\":\"1\",\"logic_12\":\"and\",\"key_12\":\"\",\"filter_12\":\"eq\",\"val_12\":\"\",\"logic_13\":\"and\",\"key_13\":\"\",\"filter_13\":\"eq\",\"val_13\":\"\",\"logic_group\":\"and\",\"key_21\":\"\",\"filter_21\":\"eq\",\"val_21\":\"\",\"logic_22\":\"and\",\"key_22\":\"\",\"filter_22\":\"eq\",\"val_22\":\"\",\"logic_23\":\"and\",\"key_23\":\"\",\"filter_23\":\"eq\",\"val_23\":\"\"}',' 姓名=1','dp_24_2|','<span data=\"dp_24_2\" id=\"dp_24_2\"><nobr><b title=\"总务科-经理\">总务科-经理</b></nobr><b><i class=\"fa\"></i></b></span>','','','',0,''),(82,33,'条件2','{\"step_id\":\"82\",\"key_11\":\"60\",\"filter_11\":\"gt\",\"val_11\":\"3\",\"logic_12\":\"and\",\"key_12\":\"60\",\"filter_12\":\"lt\",\"val_12\":\"5\",\"logic_13\":\"and\",\"key_13\":\"\",\"filter_13\":\"eq\",\"val_13\":\"\",\"logic_group\":\"and\",\"key_21\":\"\",\"filter_21\":\"eq\",\"val_21\":\"\",\"logic_22\":\"and\",\"key_22\":\"\",\"filter_22\":\"eq\",\"val_22\":\"\",\"logic_23\":\"and\",\"key_23\":\"\",\"filter_23\":\"eq\",\"val_23\":\"\"}',' 申请日期>3 并且 申请日期<5','emp_103|','<span data=\"emp_103\" id=\"emp_103\"><nobr><b title=\"103/总监\">103/总监</b></nobr><b><i class=\"fa\"></i></b></span>','','','',0,''),(92,33,'33333333333333',NULL,'','','','',NULL,'',0,''),(93,37,'4444444444',NULL,'','','','',NULL,'',0,''),(94,37,'56555555555',NULL,'','dgp_16_5|','<span data=\"dgp_16_5\" id=\"dgp_16_5\"><nobr><b title=\"科-总经理\">科-总经理</b></nobr><b><i class=\"fa\"></i></b></span>','','','',0,''),(95,37,'66666666666',NULL,'','','','',NULL,'',0,''),(96,37,'7777777777777777',NULL,'','','','',NULL,'',0,''),(97,37,'8888888888',NULL,'','','','',NULL,'',0,''),(98,37,'66666666666',NULL,'','','','',NULL,'',0,''),(99,37,'3333333333',NULL,'','dgp_18_1|','<span data=\"dgp_18_1\" id=\"dgp_18_1\"><nobr><b title=\"部-主管\">部-主管</b></nobr><b><i class=\"fa\"></i></b></span>','dgp_16_4|','<span data=\"dgp_16_4\" id=\"dgp_16_4\"><nobr><b title=\"科-副总\">科-副总</b></nobr><b><i class=\"fa\"></i></b></span>','',0,'');
+
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

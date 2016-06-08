@@ -1,0 +1,66 @@
+<extend name="Layout/ins_page" />
+<block name="content">
+	{:W('PageHeader/simple',array('name'=>'编辑公司','search'=>'N'))}
+
+	<form method='post' id="form_data" class="well form-horizontal">
+		
+		<input type="hidden" name="opmode" value="edit">
+		<input type="hidden" name="ajax" id="ajax" value="1">
+		
+		<input type="hidden" id="id" name="id" value="{$vo.id}">
+		<div class="form-group col-sm-6">
+			<label class="col-sm-4 control-label" for="company">公司名*：</label>
+			<div class="col-sm-8">
+				<input class="form-control" type="text" value="{$vo.name}" id="company_no" name="company_no" check="require" msg="请输入公司名" >
+			</div>
+		</div>
+		
+		<div class="form-group col-sm-6">
+			<label class="col-sm-4 control-label" for="dept">负责人：</label>
+			<div class="col-sm-8">
+				<input  class="form-control" type="text" value="{$vo.user_name}" id="user_name" name="user_name">
+			</div>
+		</div>
+		<div class="form-group col-sm-6">
+			<label class="col-sm-4 control-label" for="dept">公司网站：</label>
+			<div class="col-sm-8">
+				<input  class="form-control" type="text" value="{$vo.website}" id="website" name="website">
+			</div>
+		</div>
+		<div class="form-group col-sm-6">
+			<label class="col-sm-4 control-label" for="dept">公司地址：</label>
+			<div class="col-sm-8">
+				<input  class="form-control" type="text" value="{$vo.address}" id="address" name="address">
+			</div>
+		</div>
+		<volist name="field_list" id="li">
+			{:W('UserDefineField/edit',array($li))}
+		</volist>
+		<div class="form-group">
+			<label class="col-sm-2 control-label" for="remark">其他：</label>
+			<div class="col-sm-9">
+				<textarea class="form-control simple" name="remark" rows="5"
+				class="col-xs-12">{$vo.remark}</textarea>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label" for="name">附件：</label>
+			<div class="col-sm-10">
+				{:W('FileUpload/edit',array('add_file'=>$vo['add_file']))}
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="action col-sm-10 col-sm-offset-2">
+				<input class="btn btn-sm btn-primary" type="button" value="保存" onclick="save();">
+				<input class="btn btn-sm btn-default" type="button" value="取消" onclick="go_return_url();">
+			</div>
+		</div>
+	</form>
+</block>
+<block name="js">
+	<script type="text/javascript">
+		function save() {
+			sendForm("form_data", "{:U('save_company')}", "{:U('company')}");
+		}
+	</script>
+</block>
